@@ -79,7 +79,6 @@ public abstract class AbstractVirtualMachine implements VirtualMachine {
         state.board.getCpu().setFrequency(Constants.CPU_FREQUENCY);
         state.board.setBootArguments("root=/dev/vda rw");
         state.board.setStandardOutputDevice(state.builtinDevices.uart);
-
     }
 
     ///////////////////////////////////////////////////////////////////

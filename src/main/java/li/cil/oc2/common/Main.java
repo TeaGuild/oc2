@@ -54,7 +54,6 @@ public final class Main {
 
         ProviderRegistry.initialize();
         DeviceTypes.initialize();
-
         BlockDeviceDataRegistry.initialize();
         FirmwareRegistry.initialize();
 
