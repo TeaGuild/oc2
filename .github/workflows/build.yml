@@ -35,3 +35,10 @@ jobs:
         env:
           GPR_USER: ${{ secrets.GPR_USER }}
           GPR_KEY: ${{ secrets.GPR_KEY }}
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.os }}-artifacts
+          path: |
+            build/libs/*.jar
+          retention-days: 3
