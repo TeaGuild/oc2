@@ -85,7 +85,7 @@ public final class SoundCardItemDevice extends AbstractItemRPCDevice {
             final float volume = volumes[i];
             final float pitch = pitches[i];
 
-            this.playSound(name, volume, pitch);
+            playSound(name, volume, pitch);
         }
     }
 
