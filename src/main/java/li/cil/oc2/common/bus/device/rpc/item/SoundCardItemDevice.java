@@ -75,6 +75,21 @@ public final class SoundCardItemDevice extends AbstractItemRPCDevice {
     }
 
     @Callback
+    public void playMultipleSounds(@Nullable @Parameter("names") final String[] names, @Parameter("volumes") final float[] volumes, @Parameter("pitches") final float[] pitches) {
+        if (names == null) throw new IllegalArgumentException();
+        if (names.length != volumes.length) throw new IllegalArgumentException();
+        if (volumes.length != pitches.length) throw new IllegalArgumentException();
+
+        for (int i = 0; i < names.length; ++i) {
+            final String name = names[i];
+            final float volume = volumes[i];
+            final float pitch = pitches[i];
+
+            this.playSound(name, volume, pitch);
+        }
+    }
+
+    @Callback
     public List<String> findSound(@Nullable @Parameter("name") final String name) {
         if (name == null || name.length() == 0) throw new IllegalArgumentException();
 
