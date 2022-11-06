@@ -12,6 +12,7 @@ plugins {
 
 apply plugin: 'org.spongepowered.mixin'
 apply from: "minecraft.gradle"
+apply from: "applesilicon.gradle"
 
 def getGitRef() {
     try {
