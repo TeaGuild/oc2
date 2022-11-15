@@ -8,10 +8,10 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import it.unimi.dsi.fastutil.ints.Int2ObjectArrayMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import li.cil.oc2.common.Config;
 import li.cil.oc2.common.Constants;
 import li.cil.oc2.common.network.Network;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.protocol.game.ServerboundCustomPayloadPacket;
 import net.minecraftforge.network.NetworkEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,7 +29,7 @@ import java.util.function.Supplier;
 public final class MultipartMessage extends AbstractMessage {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final int MAX_MULTIPART_MESSAGE_SIZE = 1024 * Constants.KILOBYTE;
+    private static final int MAX_MULTIPART_MESSAGE_SIZE = Config.maxMessageSize;
     private static final int MAX_PAYLOAD_SIZE = 8 * Constants.KILOBYTE;
     private static final int HEADER_SIZE =
         1 /* forge message index */ +

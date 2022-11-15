@@ -38,7 +38,9 @@ public final class Config {
     @Path("gameplay") public static long soundCardCoolDownSeconds = 2;
 
     @Path("admin") public static UUID fakePlayerUUID = UUID.fromString("e39dd9a7-514f-4a2d-aa5e-b6030621416d");
+    @Path("admin.cpu") public static int maxCPUFrequency = 25_000_000;
     @Path("admin.network") public static int projectorAverageMaxBytesPerSecond = 160 * 1024;
+    @Path("admin.network") public static int maxMessageSize = 1024 * 1024;
     @Path("admin.virtual_network") public static int ethernetFrameTimeToLive = 12;
     @Path("admin.virtual_network") public static int hubEthernetFramesPerTick = 32;
 

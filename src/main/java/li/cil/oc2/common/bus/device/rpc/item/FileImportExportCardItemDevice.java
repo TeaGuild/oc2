@@ -7,7 +7,7 @@ import li.cil.oc2.api.bus.device.object.Callback;
 import li.cil.oc2.api.bus.device.object.DocumentedDevice;
 import li.cil.oc2.api.bus.device.object.Parameter;
 import li.cil.oc2.api.capabilities.TerminalUserProvider;
-import li.cil.oc2.common.Constants;
+import li.cil.oc2.common.Config;
 import li.cil.oc2.common.network.Network;
 import li.cil.oc2.common.network.message.ExportedFileMessage;
 import li.cil.oc2.common.network.message.RequestImportedFileMessage;
@@ -28,7 +28,7 @@ import java.util.Set;
 import java.util.WeakHashMap;
 
 public final class FileImportExportCardItemDevice extends AbstractItemRPCDevice implements DocumentedDevice {
-    public static final int MAX_TRANSFERRED_FILE_SIZE = 1024 * Constants.KILOBYTE;
+    public static final int MAX_TRANSFERRED_FILE_SIZE = Config.maxMessageSize;
 
     private static final String BEGIN_EXPORT_FILE = "beginExportFile";
     private static final String WRITE_EXPORT_FILE = "writeExportFile";
