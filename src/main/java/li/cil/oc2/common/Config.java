@@ -12,7 +12,7 @@ import java.util.UUID;
 public final class Config {
     @Path("vm") public static long maxAllocatedMemory = 512 * Constants.MEGABYTE;
     @Path("vm.cpu") public static int maxCPUFrequency = 25_000_000;
-    @Path("vm.disk") public static int maxDiskBandwidthBytesPerSecond = 800 * Constants.KILOBYTE;
+    @Path("vm.disk") public static long maxDiskBandwidthBytesPerSecond = 800 * Constants.KILOBYTE;
 
     @Path("energy.blocks") public static double busCableEnergyPerTick = 0.1;
     @Path("energy.blocks") public static double busInterfaceEnergyPerTick = 0.5;

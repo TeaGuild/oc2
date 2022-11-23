@@ -212,7 +212,7 @@ public abstract class AbstractBlockStorageDevice<TBlock extends BlockDevice, TId
         }
 
         device = new VirtIOBlockDevice(context.getMemoryMap(), readonly,
-            Config.maxDiskBandwidthBytesPerSecond * 1000 / Config.maxCPUFrequency);
+            (int) (Config.maxDiskBandwidthBytesPerSecond / (Config.maxCPUFrequency / 1000)));
 
         setOpenJob(createBlockDevice().thenAcceptAsync(blockDevice -> {
             try {
