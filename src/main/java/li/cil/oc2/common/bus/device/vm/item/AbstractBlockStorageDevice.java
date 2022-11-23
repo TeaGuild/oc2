@@ -8,6 +8,7 @@ import li.cil.oc2.api.bus.device.vm.VMDevice;
 import li.cil.oc2.api.bus.device.vm.VMDeviceLoadResult;
 import li.cil.oc2.api.bus.device.vm.context.VMContext;
 import li.cil.oc2.api.bus.device.vm.event.VMResumedRunningEvent;
+import li.cil.oc2.common.Config;
 import li.cil.oc2.common.Constants;
 import li.cil.oc2.common.bus.device.util.IdentityProxy;
 import li.cil.oc2.common.bus.device.util.OptionalAddress;
@@ -210,7 +211,8 @@ public abstract class AbstractBlockStorageDevice<TBlock extends BlockDevice, TId
             return false;
         }
 
-        device = new VirtIOBlockDevice(context.getMemoryMap(), readonly);
+        device = new VirtIOBlockDevice(context.getMemoryMap(), readonly,
+            Config.maxDiskBandwidthBytesPerSecond * 1000 / Config.maxCPUFrequency);
 
         setOpenJob(createBlockDevice().thenAcceptAsync(blockDevice -> {
             try {
